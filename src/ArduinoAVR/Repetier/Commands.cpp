@@ -645,6 +645,7 @@ void Commands::executeGCode(GCode *com)
             break;
         case 32: // Auto-Bed leveling
         {
+ #if FEATURE_AUTOLEVEL
             //bool iterate = com->hasP() && com->P>0;
             Printer::coordinateOffset[0] = Printer::coordinateOffset[1] = Printer::coordinateOffset[2] = 0;
             Printer::setAutolevelActive(false); // iterate
@@ -702,6 +703,7 @@ void Commands::executeGCode(GCode *com)
             Printer::homeAxis(true,true,true);
 #endif
             Printer::feedrate = oldFeedrate;
+#endif //FEATURE_AUTOLEVEL
         }
         break;
 #endif
