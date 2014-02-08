@@ -431,8 +431,10 @@ If you have a PTC thermistor instead of a NTC thermistor, keep the adc values in
  {478,2000},{539,1920},{608,1840},{687,1760},{778,1680},{883,1600},{1002,1520},{1136,1440},{1288,1360},{1457,1280},{1644,1200},{1847,1120},\
  {2062,1040},{2288,960},{2518,880},{2746,800},{2966,720},{3172,640},{3358,560},{3520,480},{3658,400},{3770,320},{3860,240},{3929,160},{3980,80},{4017,0}}
 /** Number of entries in the user thermistor table 1. Set to 0 to disable it. */
-#define NUM_TEMPS_USERTHERMISTOR1 20
-#define USER_THERMISTORTABLE1 {{4,7504},{216,2136},{428,1736},{640,1528},{852,1376},{1064,1264},{1276,1176},{1488,1096},{1700,1016},{1912,952},{2124,888},{2336,824},{2548,768},{2760,704},{2972,640},{3184,576},{3396,496},{3608,400},{3820,280},{4032,16}}
+//#define NUM_TEMPS_USERTHERMISTOR1 20
+//#define USER_THERMISTORTABLE1 {{4,7504},{216,2136},{428,1736},{640,1528},{852,1376},{1064,1264},{1276,1176},{1488,1096},{1700,1016},{1912,952},{2124,888},{2336,824},{2548,768},{2760,704},{2972,640},{3184,576},{3396,496},{3608,400},{3820,280},{4032,16}}
+#define NUM_TEMPS_USERTHERMISTOR1 0
+#define USER_THERMISTORTABLE1  {}
 /** Number of entries in the user thermistor table 2. Set to 0 to disable it. */
 #define NUM_TEMPS_USERTHERMISTOR2 0
 #define USER_THERMISTORTABLE2  {}
@@ -658,9 +660,9 @@ on this endstop.
 
 // For higher precision you can reduce the speed for the second test on the endstop
 // during homing operation. The homing speed is divided by the value. 1 = same speed, 2 = half speed
-#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 2
-#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 2
-#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 2
+#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
+#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
+#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
 
 // When you have several endstops in one circuit you need to disable it after homing by moving a
 // small amount back. This is also the case with H-belt systems.
@@ -671,7 +673,7 @@ on this endstop.
 // You can disable endstop checking for print moves. This is needed, if you get sometimes
 // false signals from your endstops. If your endstops don't give false signals, you
 // can set it on for safety.
-#define ALWAYS_CHECK_ENDSTOPS true
+#define ALWAYS_CHECK_ENDSTOPS false
 
 // maximum positions in mm - only fixed numbers!
 // For delta robot Z_MAX_LENGTH is the maximum travel of the towers and should be set to the distance between the hotend
@@ -748,7 +750,7 @@ on this endstop.
 #define CARRIAGE_HORIZONTAL_OFFSET 16
 
 /** \brief Printer radius in mm, measured from the center of the print area to the vertical smooth rod.*/
-#define PRINTER_RADIUS 185.5
+#define PRINTER_RADIUS 185.8
 
 /**  \brief Horizontal distance bridged by the diagonal push rod when the end effector is in the center. It is pretty close to 50% of the push rod length (250 mm).
 */
@@ -800,9 +802,9 @@ Mega. Used only for nonlinear systems like delta or tuga. */
 /** Maximum feedrate, the system allows. Higher feedrates are reduced to these values.
     The axis order in all axis related arrays is X, Y, Z
      Overridden if EEPROM activated.*/
-#define MAX_FEEDRATE_X 400
-#define MAX_FEEDRATE_Y 400
-#define MAX_FEEDRATE_Z 400
+#define MAX_FEEDRATE_X 300
+#define MAX_FEEDRATE_Y 300
+#define MAX_FEEDRATE_Z 300
 
 /** Home position speed in mm/s. Overridden if EEPROM activated. */
 #define HOMING_FEEDRATE_X 75
@@ -883,8 +885,8 @@ Corner can be printed with full speed of 50 mm/s
 
 Overridden if EEPROM activated.
 */
-#define MAX_JERK 20.0
-#define MAX_ZJERK 0.3
+#define MAX_JERK 10.0
+#define MAX_ZJERK 1
 
 /** \brief Number of moves we can cache in advance.
 
@@ -1009,7 +1011,7 @@ matches, the stored values are used to overwrite the settings.
 IMPORTANT: With mode <>0 some changes in Configuration.h are not set any more, as they are
            taken from the EEPROM.
 */
-#define EEPROM_MODE 2
+#define EEPROM_MODE 1
 
 
 /**************** duplicate motor driver ***************
@@ -1093,12 +1095,12 @@ is always running and is not hung up for some unknown reason. */
 #define Z_PROBE_X3 0
 #define Z_PROBE_Y3 100
 
-/* Define a pin to tuen light on/off */
+/* Define a pin to turn light on/off */
 #define CASE_LIGHTS_PIN 4 //move to pins.h
 
 /** Set to false to disable SD support: */
 #ifndef SDSUPPORT  // Some boards have sd support on board. These define the values already in pins.h
-#define SDSUPPORT true
+#define SDSUPPORT false
 // Uncomment to enable or change card detection pin. With card detection the card is mounted on insertion.
 #define SDCARDDETECT 38
 // Change to true if you get a inserted message on removal.
@@ -1111,7 +1113,7 @@ is always running and is not hung up for some unknown reason. */
 
 /** You can store the current position with M401 and go back to it with M402.
    This works only if feature is set to true. */
-#define FEATURE_MEMORY_POSITION true
+//#define FEATURE_MEMORY_POSITION true
 
 /** If a checksum is sent, all future comamnds must also contain a checksum. Increases reliability especially for binary protocol. */
 #define FEATURE_CHECKSUM_FORCED false
@@ -1141,8 +1143,8 @@ The following settings override uiconfig.h!
 10 = Gadgets3D shield on RAMPS 1.4, see http://reprap.org/wiki/RAMPS_1.3/1.4_GADGETS3D_Shield_with_Panel
 11 = RepRapDiscount Full Graphic Smart Controller
 */
-#define FEATURE_CONTROLLER 0//11
-#define UI_DISPLAY_TYPE 0//5
+#define FEATURE_CONTROLLER 11
+#define UI_DISPLAY_TYPE 5
 
 /**
 Select the language to use.

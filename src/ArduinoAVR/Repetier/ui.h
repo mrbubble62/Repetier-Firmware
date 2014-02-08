@@ -449,61 +449,7 @@ void ui_check_slow_keys(int &action) {}
 #define UI_COLS 20
 #define UI_ROWS 4
 #endif
-#define BEEPER_TYPE 1
-#if FEATURE_CONTROLLER==10 // Gadgets3d shield
-#define BEEPER_PIN             33
-#define UI_DISPLAY_RS_PIN      16
-#define UI_DISPLAY_RW_PIN      -1
-#define UI_DISPLAY_ENABLE_PIN  17
-#define UI_DISPLAY_D0_PIN      23
-#define UI_DISPLAY_D1_PIN      25
-#define UI_DISPLAY_D2_PIN      27
-#define UI_DISPLAY_D3_PIN      29
-#define UI_DISPLAY_D4_PIN      23
-#define UI_DISPLAY_D5_PIN      25
-#define UI_DISPLAY_D6_PIN      27
-#define UI_DISPLAY_D7_PIN      29
-#define UI_ENCODER_A           35
-#define UI_ENCODER_B           37
-#define UI_ENCODER_CLICK       31
-#define UI_RESET_PIN           41
-#else  // Smartcontroller
-#if MOTHERBOARD==80 // Rumba has different pins as RAMPS!
-#define BEEPER_PIN             44
-#define UI_DISPLAY_RS_PIN      19
-#define UI_DISPLAY_RW_PIN      -1
-#define UI_DISPLAY_ENABLE_PIN  42
-#define UI_DISPLAY_D0_PIN      18
-#define UI_DISPLAY_D1_PIN      38
-#define UI_DISPLAY_D2_PIN      41
-#define UI_DISPLAY_D3_PIN      40
-#define UI_DISPLAY_D4_PIN      18
-#define UI_DISPLAY_D5_PIN      38
-#define UI_DISPLAY_D6_PIN      41
-#define UI_DISPLAY_D7_PIN      40
-#define UI_ENCODER_A           12
-#define UI_ENCODER_B           11
-#define UI_ENCODER_CLICK       43
-#define UI_RESET_PIN           46
-#else
-#define BEEPER_PIN             37
-#define UI_DISPLAY_RS_PIN      16
-#define UI_DISPLAY_RW_PIN      -1
-#define UI_DISPLAY_ENABLE_PIN  17
-#define UI_DISPLAY_D0_PIN      23
-#define UI_DISPLAY_D1_PIN      25
-#define UI_DISPLAY_D2_PIN      27
-#define UI_DISPLAY_D3_PIN      29
-#define UI_DISPLAY_D4_PIN      23
-#define UI_DISPLAY_D5_PIN      25
-#define UI_DISPLAY_D6_PIN      27
-#define UI_DISPLAY_D7_PIN      29
-#define UI_ENCODER_A           BTN_EN1
-#define UI_ENCODER_B           BTN_EN2
-#define UI_ENCODER_CLICK       BTN_ENC
-#define UI_RESET_PIN           44
-#endif
-#endif
+
 #define UI_DELAYPERCHAR 320
 #define UI_INVERT_MENU_DIRECTION false
 #ifdef UI_MAIN
@@ -520,7 +466,7 @@ void ui_check_keys(int &action) {
 inline void ui_check_slow_encoder() {}
 void ui_check_slow_keys(int &action) {}
 #endif
-#endif // Controller 2 and 10
+#endif // Controller 2, 10 or 11
 
 #if FEATURE_CONTROLLER==3 // Adafruit RGB controller
 #define UI_HAS_KEYS 1
@@ -619,7 +565,6 @@ void ui_check_slow_keys(int &action) {}
 #endif
 #endif // Controller 4
 
-
 #if FEATURE_CONTROLLER==5 // Viki Lcd
 
 // You need to change these 3 button according to the positions
@@ -701,6 +646,7 @@ void ui_check_slow_keys(int &action) {
 #endif // Controller 5
 
 #if FEATURE_CONTROLLER==6 // ReprapWorld Keypad / LCD
+
 #define UI_HAS_KEYS 1
 #define UI_HAS_BACK_KEY 0
 #define UI_DISPLAY_TYPE 1
@@ -942,7 +888,6 @@ void ui_check_slow_keys(int &action) {}
 #endif
 
 #if UI_DISPLAY_TYPE!=0
-
 
 #if UI_DISPLAY_TYPE==3
 #define COMPILE_I2C_DRIVER

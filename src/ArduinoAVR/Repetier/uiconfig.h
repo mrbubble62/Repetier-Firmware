@@ -96,9 +96,7 @@ What display type do you use?
                If you have Sanguino and want to use the library, you need to have Arduino 023 or older. (13.04.2012)
 5 = U8G supported display
 */
-#ifndef(UI_DISPLAY_TYPE)
-#define UI_DISPLAY_TYPE 0
-#endif
+#define UI_DISPLAY_TYPE 5
 
 #if UI_DISPLAY_TYPE == 5 // Special case for graphic displays
 
@@ -329,7 +327,8 @@ const int matrixActions[] PROGMEM = UI_MATRIX_ACTIONS;
 void ui_init_keys() {
 #if UI_HAS_KEYS!=0
   UI_KEYS_INIT_CLICKENCODER_LOW(BTN_EN1,BTN_EN2); // click encoder on pins 47 and 45. Phase is connected with gnd for signals.
-  UI_KEYS_INIT_BUTTON_LOW(BTN_ENC); // push button, connects gnd to pin  //UI_KEYS_INIT_BUTTON_LOW(5);
+  UI_KEYS_INIT_BUTTON_LOW(BTN_ENC); // push button, connects gnd to pin  
+  //UI_KEYS_INIT_BUTTON_LOW(5);
   //UI_KEYS_INIT_BUTTON_LOW(6);
   //UI_KEYS_INIT_BUTTON_LOW(11);
   //UI_KEYS_INIT_BUTTON_LOW(42);
